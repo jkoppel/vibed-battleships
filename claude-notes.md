@@ -8,6 +8,7 @@ Building a multiplayer Battleship game with game rooms and invite links.
 - Multiplayer version of the classic Battleship board game
 - Players create/join game rooms using invite links
 - Real-time gameplay with ship placement and turn-based attacks
+- Special "Bomb" feature: 3x3 area attack, 2 uses per game per player
 
 **IMPORTANT**: If starting from a fresh session, re-read the /init-app command file for complete initialization steps.
 
@@ -16,7 +17,8 @@ Building a multiplayer Battleship game with game rooms and invite links.
 - 🔄 Step 2: Implementation (in progress)
 
 ## Commits Made During Session
-- About to commit: Initial app setup for Battleship multiplayer game
+- 2143417: init: setup Battleship multiplayer game project
+- About to commit: Core Battleship game implementation
 
 ## Next Steps
 - Update project name and remove template instructions
