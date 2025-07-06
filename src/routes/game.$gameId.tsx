@@ -205,7 +205,7 @@ function ShipPlacement({ gameId, onShipsPlaced }: {
 
     if (!isValidPlacement(shipId, startX, startY, ship.size, orientation)) return;
 
-    const positions = [];
+    const positions: { x: number; y: number }[] = [];
     for (let i = 0; i < ship.size; i++) {
       const x = orientation === "horizontal" ? startX + i : startX;
       const y = orientation === "vertical" ? startY + i : startY;
