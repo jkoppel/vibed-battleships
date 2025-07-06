@@ -18,7 +18,8 @@ Building a multiplayer Battleship game with game rooms and invite links.
 
 ## Commits Made During Session
 - 2143417: init: setup Battleship multiplayer game project
-- About to commit: Core Battleship game implementation
+- c1408f7: feat: implement core Battleship game with room system, ship placement, and bomb feature
+- About to commit: Fix TypeScript linting errors
 
 ## Next Steps
 - Update project name and remove template instructions

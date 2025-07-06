@@ -36,7 +36,6 @@ function HomePage() {
 
 function GameLobby() {
   const [roomCode, setRoomCode] = useState("");
-  const [isJoining, setIsJoining] = useState(false);
   const navigate = useNavigate();
   const createGame = useMutation(api.games.createGame);
   const joinGame = useMutation(api.games.joinGame);
@@ -77,7 +76,7 @@ function GameLobby() {
             <div className="card-actions justify-center">
               <button 
                 className="btn btn-primary btn-wide"
-                onClick={handleCreateGame}
+                onClick={() => void handleCreateGame()}
               >
                 Create Game
               </button>
@@ -108,7 +107,7 @@ function GameLobby() {
             <div className="card-actions justify-center">
               <button 
                 className="btn btn-secondary btn-wide"
-                onClick={handleJoinGame}
+                onClick={() => void handleJoinGame()}
                 disabled={!roomCode.trim()}
               >
                 Join Game

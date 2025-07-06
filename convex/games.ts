@@ -179,7 +179,7 @@ export const placeShips = mutation({
       throw new ConvexError("Invalid number of ships");
     }
 
-    const formattedShips = ships.map((ship, index) => ({
+    const formattedShips = ships.map((ship) => ({
       id: ship.id,
       positions: ship.positions,
       hits: new Array(ship.positions.length).fill(false),

@@ -24,16 +24,14 @@ function GameRoom() {
   const { data: game } = useSuspenseQuery(gameQueryOptions);
   
   const [selectedShipType, setSelectedShipType] = useState<"normal" | "bomb">("normal");
-  const placeShips = useMutation(api.games.placeShips);
-  const makeMove = useMutation(api.games.makeMove);
 
   const shareGameLink = () => {
     const link = `${window.location.origin}/game/${gameId}`;
-    navigator.clipboard.writeText(link);
+    void navigator.clipboard.writeText(link);
   };
 
   const copyRoomCode = () => {
-    navigator.clipboard.writeText(game.roomCode);
+    void navigator.clipboard.writeText(game.roomCode);
   };
 
   if (game.status === "waiting") {
@@ -161,8 +159,8 @@ function ShipPlacement({ gameId, onShipsPlaced }: {
   gameId: Id<"games">; 
   onShipsPlaced: () => void; 
 }) {
-  const [ships, setShips] = useState<Array<{ id: string; positions: Array<{ x: number; y: number }> }>>([]);
-  const [placedShips, setPlacedShips] = useState<Set<string>>(new Set());
+  const [ships] = useState<Array<{ id: string; positions: Array<{ x: number; y: number }> }>>([]);
+  const [placedShips] = useState<Set<string>>(new Set());
   const placeShips = useMutation(api.games.placeShips);
 
   const SHIP_SIZES = [
@@ -252,7 +250,7 @@ function ShipPlacement({ gameId, onShipsPlaced }: {
           <div className="card-actions justify-center mt-4">
             <button 
               className="btn btn-primary btn-wide"
-              onClick={handleFinalizePlacement}
+              onClick={() => void handleFinalizePlacement()}
               disabled={ships.length !== 5}
             >
               {ships.length === 5 ? 'Ready for Battle!' : `Place ${5 - ships.length} more ships`}
@@ -353,7 +351,7 @@ function GameBoard({ game, selectedShipType, onShipTypeChange }: {
                           : 'bg-base-300'
                         : 'bg-base-100 hover:bg-base-300'
                     } ${isMyTurn ? 'cursor-pointer' : 'cursor-not-allowed'}`}
-                    onClick={() => !shot && handleCellClick(x, y)}
+                    onClick={() => !shot && void handleCellClick(x, y)}
                   >
                     {shot && (
                       <div className="w-full h-full flex items-center justify-center text-xs font-bold">
