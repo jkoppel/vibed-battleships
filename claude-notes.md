@@ -1,4 +1,4 @@
-# Claude Code Notes
+# Claude Code Notes  
 
 ## Current Feature: App Initialization - Multiplayer Battleship
 
